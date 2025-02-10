@@ -5,6 +5,8 @@
  * range of the clock is 00:00 (midnight) to 23:59 (one minute before 
  * midnight).
  * 
+ * This clock displays hour values between 0..23 like European clocks do.
+ * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
