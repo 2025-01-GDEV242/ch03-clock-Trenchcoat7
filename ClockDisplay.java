@@ -43,7 +43,7 @@ public class ClockDisplay
      */
     public ClockDisplay(int hour, int minute)
     {
-        hours = new NumberDisplay(13);
+        hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
@@ -89,5 +89,12 @@ public class ClockDisplay
     {
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
+                        
+        if (hours.getValue() >= 13) 
+        {
+        
+            hours.setTime = hours.setTime - 12;            
+        
+        }
     }
 }
