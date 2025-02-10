@@ -80,7 +80,33 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        displayString = hours.getDisplayValue() + ":" + 
+        int currentHour = hours.getValue();
+        
+        if (currentHour > 12){
+        
+                currentHour = currentHour -12;
+        
+        }
+        
+        if(currentHour == 0){
+        
+            currentHour = 12;
+        
+        }
+        
+        displayString = currentHour + ":" + 
                         minutes.getDisplayValue();
+                        
+        if(hours.getValue() >= 12){
+        
+            displayString = displayString + "pm";
+        
+        }
+        else{
+        
+            displayString = displayString + "am";
+            
+        }
+        
     }
 }
