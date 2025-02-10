@@ -10,6 +10,8 @@
  * 
  * This clock converts hour values of 0..23 to 12..11 as shown on a US clock.
  * 
+ * This clock also displays AM and PM indicators for morning or afternoon.
+ * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
  * fashion: the hour increments when the minutes roll over to zero.
