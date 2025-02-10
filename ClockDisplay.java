@@ -8,7 +8,7 @@
  * range of the clock is 12:00am (midnight) to 11:59pm (one minute before 
  * midnight).
  * 
- * Clock converts hour values of 0..23 to 12..11 as shown on a US clock.
+ * This clock converts hour values of 0..23 to 12..11 as shown on a US clock.
  * 
  * The clock display receives "ticks" (via the timeTick method) every minute
  * and reacts by incrementing the display. This is done in the usual clock
