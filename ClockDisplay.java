@@ -31,7 +31,7 @@ public class ClockDisplay
      */
     public ClockDisplay()
     {
-        hours = new NumberDisplay(12);
+        hours = new NumberDisplay(24);
         minutes = new NumberDisplay(60);
         updateDisplay();
     }
@@ -43,7 +43,7 @@ public class ClockDisplay
      */
     public ClockDisplay(int hour, int minute)
     {
-        hours = new NumberDisplay(12);
+        hours = new NumberDisplay(13);
         minutes = new NumberDisplay(60);
         setTime(hour, minute);
     }
@@ -70,6 +70,7 @@ public class ClockDisplay
     {
         hours.setValue(hour);
         minutes.setValue(minute);
+        
         updateDisplay();
     }
 
