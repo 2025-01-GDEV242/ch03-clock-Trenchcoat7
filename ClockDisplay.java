@@ -23,6 +23,7 @@ public class ClockDisplay
 {
     private NumberDisplay hours;
     private NumberDisplay minutes;
+    private String ampm;
     private String displayString;    // simulates the actual display
     
     /**
@@ -31,8 +32,9 @@ public class ClockDisplay
      */
     public ClockDisplay()
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
+        ampm = new String();
         updateDisplay();
     }
 
@@ -41,11 +43,12 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute)
+    public ClockDisplay(int hour, int minute, String ampm)
     {
-        hours = new NumberDisplay(24);
+        hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        setTime(hour, minute);
+        ampm = new String();
+        setTime(hour, minute, ampm);
     }
 
     /**
@@ -66,7 +69,7 @@ public class ClockDisplay
      * Set the time of the display to the specified hour and
      * minute.
      */
-    public void setTime(int hour, int minute)
+    public void setTime(int hour, int minute, String ampm)
     {
         hours.setValue(hour);
         minutes.setValue(minute);
@@ -87,40 +90,9 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
+        
+        
         displayString = hours.getDisplayValue() + ":" + 
                         minutes.getDisplayValue();
-                        
-        if (hours.getValue() >= 13) 
-        {
-        
-            int currentHour = hours.getValue();
-        
-        if (currentHour > 12){
-        
-                currentHour = currentHour -12;
-        
-        }
-        
-        if(currentHour == 0){
-        
-            currentHour = 12;
-        
-        }
-        
-        displayString = currentHour + ":" + 
-                        minutes.getDisplayValue();
-                        
-        if(hours.getValue() >= 12){
-        
-            displayString = displayString + "pm";
-        
-        }
-        else{
-        
-            displayString = displayString + "am";
-            
-        }            
-        
-        }
     }
 }
