@@ -23,18 +23,17 @@ public class ClockDisplay
 {
     private NumberDisplay hours;
     private NumberDisplay minutes;
-    private String ampm;
+    private boolean morning;
     private String displayString;    // simulates the actual display
     
     /**
      * Constructor for ClockDisplay objects. This constructor 
-     * creates a new clock set at 00:00.
+     * creates a new clock set at 12:00am.
      */
     public ClockDisplay()
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        ampm = new String();
         updateDisplay();
     }
 
@@ -43,14 +42,13 @@ public class ClockDisplay
      * creates a new clock set at the time specified by the 
      * parameters.
      */
-    public ClockDisplay(int hour, int minute, String ampm)
+    public ClockDisplay(int hour, int minute, boolean morning)
     {
         hours = new NumberDisplay(12);
         minutes = new NumberDisplay(60);
-        ampm = new String();
-        setTime(hour, minute, ampm);
+        setTime(hour, minute, morning);
     }
-
+    
     /**
      * This method should get called once every minute - it makes
      * the clock display go one minute forward.
@@ -66,17 +64,19 @@ public class ClockDisplay
     }
 
     /**
-     * Set the time of the display to the specified hour and
-     * minute.
+     * Set the time of the display to the specified hour,
+     * minute, and time of day.
+     * 
+     * If am, set morning to true. If pm, set it to false.
      */
-    public void setTime(int hour, int minute, String ampm)
+    public void setTime(int hour, int minute, boolean morning)
     {
         hours.setValue(hour);
         minutes.setValue(minute);
         
         updateDisplay();
     }
-
+    
     /**
      * Return the current time of this display in the format HH:MM.
      */
@@ -90,9 +90,14 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
-        
-        
+        if (morning = true){
         displayString = hours.getDisplayValue() + ":" + 
-                        minutes.getDisplayValue();
+                        minutes.getDisplayValue() + "am"; 
+                    }
+                    
+        else{
+        displayString = hours.getDisplayValue() + ":" + 
+                        minutes.getDisplayValue() + "pm"; 
+                    }
     }
 }
