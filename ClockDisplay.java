@@ -90,8 +90,16 @@ public class ClockDisplay
      */
     private void updateDisplay()
     {
+        int currentHour = hours.getValue();
+        
+        if(currentHour == 0){
+        
+            currentHour = 12;
+            
+        }
+        
         if (morning = true){
-        displayString = hours.getDisplayValue() + ":" + 
+        displayString = currentHour + ":" + 
                         minutes.getDisplayValue() + "am"; 
                     }
                     
